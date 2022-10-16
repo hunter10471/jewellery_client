@@ -7,7 +7,7 @@ type Props = {};
 const NavList = (props: Props) => {
   return (
     <>
-      <ul className='gap-2 hidden lg:flex lg'>
+      <ul className='gap-2 hidden lg:flex lg font-heading font-medium'>
         <Button text='Products' ghost />
         <Button text='Location' ghost />
         <Button text='About Us' ghost />
