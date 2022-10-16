@@ -9,11 +9,24 @@ const responsive = {
     breakpoint: { max: 6000, min: 0 },
     items: 1,
   },
+  tablet: {
+    breakpoint: { max: 900, min: 600 },
+    items: 1,
+  },
+  mobile: {
+    breakpoint: { max: 600, min: 0 },
+    items: 1,
+  },
 };
 
 const Carousel = () => {
   return (
-    <Slider containerClass='h-[70vh]' responsive={responsive}>
+    <Slider
+      removeArrowOnDeviceType={['tablet', 'mobile']}
+      autoPlay={true}
+      keyBoardControl={true}
+      responsive={responsive}
+    >
       {carouselData.map((slide) => (
         <CarouselItem {...slide} />
       ))}
