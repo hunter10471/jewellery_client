@@ -27,8 +27,8 @@ const Carousel = () => {
       keyBoardControl={true}
       responsive={responsive}
     >
-      {carouselData.map((slide) => (
-        <CarouselItem {...slide} />
+      {carouselData.map((slide, index) => (
+        <CarouselItem key={index} {...slide} />
       ))}
     </Slider>
   );

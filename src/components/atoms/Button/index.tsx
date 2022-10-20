@@ -23,7 +23,7 @@ const Button = ({
     <button
       className={`${className} ${ghost && 'btn-ghost'} ${
         active && 'btn-active'
-      } btn-sm text-left md:btn-md text-xs sm:text-sm lg:text-base font-medium capitalize rounded-full ${
+      } text-left btn-sm  md:btn-md font-medium capitalize rounded-full ${
         primary &&
         'bg-primary text-white border-2 border-white hover:bg-white hover:text-primary hover:border-primary rounded-full '
       } ${icon && 'btn-circle'} ${link && 'btn-link'} `}
