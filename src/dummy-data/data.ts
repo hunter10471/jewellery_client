@@ -31,3 +31,21 @@ export const collectionData = [
     title: 'bracelet collection',
   },
 ];
+
+export const bestSellerCarouselData = [
+  {
+    price: '3180',
+    title: "Harrington's Earrings",
+    img: 'https://images.unsplash.com/photo-1623303179820-de8ec58b03dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80',
+  },
+  {
+    price: '5590',
+    title: "Gloria's Bracelets",
+    img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+  },
+  {
+    price: '3580',
+    title: 'Reverend Jewels',
+    img: 'https://images.unsplash.com/photo-1591210244853-ea68b6126edf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+  },
+];
