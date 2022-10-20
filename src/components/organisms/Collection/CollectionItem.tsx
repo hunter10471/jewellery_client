@@ -7,7 +7,9 @@ interface ICollectionItem {
 }
 
 const CollectionItem = ({ img, title }: ICollectionItem) => {
-  const [visible, setVisible] = useState<boolean>(false);
+  const [visible, setVisible] = useState<boolean>(
+    title === 'earrings collection' ? true : false
+  );
   return (
     <div
       onMouseOver={() => setVisible(true)}
@@ -25,7 +27,7 @@ const CollectionItem = ({ img, title }: ICollectionItem) => {
         <h2 className='font-heading text-3xl font-semibold text-center capitalize pointer-events-none'>
           {title}
         </h2>
-        <Button text='View Collection' primary />
+        <Button text='View Collection' className='border-none' primary />
       </span>
     </div>
   );

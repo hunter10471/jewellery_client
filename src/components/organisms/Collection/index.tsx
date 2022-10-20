@@ -6,7 +6,7 @@ type Props = {};
 
 const Collection = (props: Props) => {
   return (
-    <div className='flex flex-col items-center'>
+    <div className='flex flex-col items-center p-10'>
       <div className='flex flex-col items-center text-center gap-8 p-20 '>
         <h1 className='font-heading font-semibold text-5xl max-w-[450px] tracking-wide '>
           Our Collections By Categories
