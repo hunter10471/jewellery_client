@@ -49,3 +49,24 @@ export const bestSellerCarouselData = [
     img: 'https://images.unsplash.com/photo-1591210244853-ea68b6126edf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
   },
 ];
+
+export const OurStoryItems = [
+  {
+    title: 'Professional Designing',
+    description:
+      'The process of jewellery designing requires professionals to create a technical sketch of the jewellery piece that is being made. This sketch is then converted into a model using computer-aided design (CAD) software. After this, the stones for making this jewellery piece are decided.',
+    img: 'https://images.unsplash.com/photo-1655111396188-8dd88ceb8b4d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+  },
+  {
+    title: 'Craftsmanship',
+    description:
+      'Jewellery design is the first step in our jewellery-making process. Everything begins with a sketch in which creative ideas are brought to life on paper. Our jewellery designers always combine tradition with the spirit of the times, They lay the foundations.',
+    img: 'https://images.unsplash.com/photo-1624588057318-5f1b2eb81012?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+  },
+  {
+    title: 'Gold & Diamonds',
+    description:
+      'In certain parts of the world, gold is considered a form of currency, which is not true for diamonds. In this sense, gold could be worth more than diamonds. On the other hand, diamonds often have a better resale value, making them worth more when considering this factor.',
+    img: 'https://images.unsplash.com/photo-1518049655356-4b957c5e604a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=749&q=80',
+  },
+];

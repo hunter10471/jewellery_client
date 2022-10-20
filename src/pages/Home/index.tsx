@@ -5,6 +5,7 @@ import Navbar from '../../components/molecules/Navbar';
 import BestSeller from '../../components/organisms/BestSeller';
 import Collection from '../../components/organisms/Collection';
 import NewRelease from '../../components/organisms/NewRelease';
+import OurStory from '../../components/organisms/OurStory';
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <Collection />
       <NewRelease />
       <BestSeller />
+      <OurStory />
       <Footer />
     </div>
   );
