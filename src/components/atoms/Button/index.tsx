@@ -8,6 +8,7 @@ type IButton = {
   primary?: boolean;
   icon?: boolean;
   link?: boolean;
+  children?: JSX.Element;
 };
 
 const Button = ({
@@ -18,6 +19,7 @@ const Button = ({
   primary,
   icon,
   link,
+  children,
 }: IButton) => {
   return (
     <button
@@ -28,7 +30,7 @@ const Button = ({
         'bg-primary text-white border-2 border-white hover:bg-white hover:text-primary hover:border-primary rounded-full '
       } ${icon && 'btn-circle'} ${link && 'btn-link'} `}
     >
-      {text}
+      {children} {text}
     </button>
   );
 };

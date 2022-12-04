@@ -1,4 +1,5 @@
 import React from 'react';
+import Cart from '../../atoms/Cart';
 import Logo from '../../atoms/Logo';
 import NavList from '../../atoms/NavList';
 import SearchBar from '../../atoms/SearchBar';
@@ -13,6 +14,7 @@ const Navbar = () => {
         </div>
         <SearchBar />
       </div>
+      <Cart />
     </nav>
   );
 };
