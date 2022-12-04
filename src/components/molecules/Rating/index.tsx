@@ -10,30 +10,30 @@ interface IRatingProps {
 const Rating = ({ rating }: IRatingProps) => {
   return (
     <div className='w-fit'>
-      <div className='rating mt-2 flex items-center'>
+      <div className='rating flex items-center'>
         <input
           type='radio'
           name='rating-2'
           className='mask mask-star-2 bg-orange-400'
-          defaultChecked={(rating?.rate || 1) > 1}
+          defaultChecked={(rating?.rate || 1) > 1 && (rating?.rate || 2) < 2}
         />
         <input
           type='radio'
           name='rating-2'
           className='mask mask-star-2 bg-orange-400'
-          defaultChecked={(rating?.rate || 2) > 2}
+          defaultChecked={(rating?.rate || 2) > 2 && (rating?.rate || 3) < 3}
         />
         <input
           type='radio'
           name='rating-2'
           className='mask mask-star-2 bg-orange-400'
-          defaultChecked={(rating?.rate || 3) > 3}
+          defaultChecked={(rating?.rate || 3) > 3 && (rating?.rate || 4) < 4}
         />
         <input
           type='radio'
           name='rating-2'
           className='mask mask-star-2 bg-orange-400'
-          defaultChecked={(rating?.rate || 4) > 4}
+          defaultChecked={(rating?.rate || 4) > 4 && (rating?.rate || 5) < 5}
         />
         <input
           type='radio'

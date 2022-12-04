@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getProducts } from '../../api/Product.api';
 import Button from '../../components/atoms/Button';
 import Sizes from '../../components/molecules/Sizes';
 import { IProduct } from '../../interfaces/Product.interface';
@@ -9,20 +8,21 @@ import { BsFillCartPlusFill } from 'react-icons/bs';
 import BreadCrumbs from '../../components/molecules/BreadCrumbs';
 import Rating from '../../components/molecules/Rating';
 import Toast, { ToastType } from '../../components/atoms/Toast';
-import { addProductsState } from '../../feature/productSlice';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../feature/store';
+
 const Product = () => {
   const { id } = useParams();
   const [product, setProduct] = useState<IProduct>();
   const [success, setSuccess] = useState<boolean>(false);
+  const productState = useSelector((state: RootState) => state.product);
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const data = await getProducts();
-      setProduct(data[0]);
+      if (id) setProduct(productState.products[parseInt(id)]);
     };
     id && fetchProduct();
-    addProductsState();
-  }, [id]);
+  }, [id, productState.products]);
 
   const addProduct = () => {
     setSuccess(true);
@@ -35,7 +35,7 @@ const Product = () => {
     <div className='flex items-center justify-center w-full'>
       <div className='px-4 py-[50px] max-w-screen-xl flex justify-center gap-[100px] flex-wrap w-full'>
         <div className='flex flex-col'>
-          <BreadCrumbs />
+          <BreadCrumbs title={product?.title} />
           <img
             className='w-[80vw] max-w-[400px] h-auto'
             src={product?.image}

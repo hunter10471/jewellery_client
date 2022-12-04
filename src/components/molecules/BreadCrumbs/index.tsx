@@ -1,9 +1,16 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const BreadCrumbs = () => {
+interface IBreadCrumbsProps {
+  title?: string;
+}
+
+const BreadCrumbs = ({ title }: IBreadCrumbsProps) => {
   const currentLocation = window.location.href.split('//')[1].split('/');
   const navigate = useNavigate();
+  const isProduct = (link: string) => {
+    return parseInt(link) ? title : link;
+  };
   return (
     <div className='text-sm breadcrumbs mb-10'>
       <ul>
@@ -21,7 +28,7 @@ const BreadCrumbs = () => {
               }
             >
               <a href={currentLocation.slice(0, index + 1).join('/')}>
-                {link === 'localhost:3000' ? 'Home' : link}
+                {link === 'localhost:3000' ? 'Home' : isProduct(link)}
               </a>
             </li>
           );
