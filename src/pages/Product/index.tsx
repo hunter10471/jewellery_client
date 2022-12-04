@@ -8,9 +8,12 @@ import { AiFillHeart } from 'react-icons/ai';
 import { BsFillCartPlusFill } from 'react-icons/bs';
 import BreadCrumbs from '../../components/molecules/BreadCrumbs';
 import Rating from '../../components/molecules/Rating';
+import Toast, { ToastType } from '../../components/atoms/Toast';
+import { addProductsState } from '../../feature/productSlice';
 const Product = () => {
   const { id } = useParams();
   const [product, setProduct] = useState<IProduct>();
+  const [success, setSuccess] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -18,7 +21,15 @@ const Product = () => {
       setProduct(data[0]);
     };
     id && fetchProduct();
+    addProductsState();
   }, [id]);
+
+  const addProduct = () => {
+    setSuccess(true);
+    setTimeout(() => {
+      setSuccess(false);
+    }, 5000);
+  };
 
   return (
     <div className='flex items-center justify-center w-full'>
@@ -50,6 +61,7 @@ const Product = () => {
               <AiFillHeart fontSize={20} />
             </Button>
             <Button
+              onClick={addProduct}
               primary
               className='flex items-center gap-2 tracking-wider rounded-[10px]   '
               text='ADD TO CART'
@@ -65,6 +77,11 @@ const Product = () => {
           </div>
         </div>
       </div>
+      <Toast
+        className={`${success ? 'translate-x-0' : 'translate-x-[100%]'}`}
+        text={'Product added successfully'}
+        type={ToastType.success}
+      />
     </div>
   );
 };

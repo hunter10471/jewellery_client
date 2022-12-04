@@ -10,3 +10,8 @@ export interface IProduct {
   image: string;
   price: number;
 }
+
+export interface IProductState {
+  products: IProduct[];
+  loading: boolean;
+}

@@ -9,6 +9,7 @@ type IButton = {
   icon?: boolean;
   link?: boolean;
   children?: JSX.Element;
+  onClick?: () => void;
 };
 
 const Button = ({
@@ -20,9 +21,11 @@ const Button = ({
   icon,
   link,
   children,
+  onClick,
 }: IButton) => {
   return (
     <button
+      onClick={onClick}
       className={`${className} ${ghost && 'btn-ghost'} ${
         active && 'btn-active'
       } text-left btn-sm  md:btn-md font-medium capitalize rounded-full transition-all w-fit  ${

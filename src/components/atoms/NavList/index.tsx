@@ -1,14 +1,14 @@
 import React from 'react';
 import Button from '../Button';
 import { BiMenuAltLeft } from 'react-icons/bi';
+import { useNavigate } from 'react-router-dom';
 
-type Props = {};
-
-const NavList = (props: Props) => {
+const NavList = () => {
+  const navigate = useNavigate();
   return (
     <>
       <ul className='gap-2 hidden lg:flex lg font-heading font-medium'>
-        <Button text='Products' ghost />
+        <Button onClick={() => navigate('/products')} text='Products' ghost />
         <Button text='Location' ghost />
         <Button text='About Us' ghost />
       </ul>
@@ -24,7 +24,7 @@ const NavList = (props: Props) => {
           tabIndex={0}
           className=' dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40'
         >
-          <Button text='Products' ghost />
+          <Button onClick={() => navigate('/products')} text='Products' ghost />
           <Button text='Location' ghost />
           <Button text='About Us' ghost />
         </ul>
