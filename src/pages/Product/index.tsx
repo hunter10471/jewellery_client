@@ -8,23 +8,37 @@ import { BsFillCartPlusFill } from 'react-icons/bs';
 import BreadCrumbs from '../../components/molecules/BreadCrumbs';
 import Rating from '../../components/molecules/Rating';
 import Toast, { ToastType } from '../../components/atoms/Toast';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../feature/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../feature/store';
+import { addProductCart } from '../../feature/cartSlice';
+import { products } from '../../dummy-data/data';
+
+export enum SizesType {
+  small = 'small',
+  medium = 'medium',
+  large = 'large',
+  extraLarge = 'extraLarge',
+  extraExtraLarge = 'extraExtraLarge',
+}
 
 const Product = () => {
   const { id } = useParams();
   const [product, setProduct] = useState<IProduct>();
   const [success, setSuccess] = useState<boolean>(false);
-  const productState = useSelector((state: RootState) => state.product);
+  const [size, setSize] = useState<SizesType>(SizesType.small);
 
+  const productState = useSelector((state: RootState) => state.product);
+  const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
     const fetchProduct = async () => {
-      if (id) setProduct(productState.products[parseInt(id)]);
+      // if (id) setProduct(productState.products[parseInt(id)]);
+      if (id) setProduct(products[id]);
     };
     id && fetchProduct();
   }, [id, productState.products]);
 
   const addProduct = () => {
+    if (product) dispatch(addProductCart({ ...product, size }));
     setSuccess(true);
     setTimeout(() => {
       setSuccess(false);
@@ -52,7 +66,7 @@ const Product = () => {
           <h6 className='font-medium text-gray-400 mt-1'>
             (Additional tax may be included)
           </h6>
-          <Sizes />
+          <Sizes setSize={setSize} size={size} />
           <div className='my-10 flex gap-4'>
             <Button
               className='flex items-center gap-2 tracking-wider rounded-[10px]   bg-gray-400 text-white '

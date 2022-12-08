@@ -15,21 +15,23 @@ const BreadCrumbs = ({ title }: IBreadCrumbsProps) => {
     <div className='text-sm breadcrumbs mb-10'>
       <ul>
         {currentLocation.map((link, index) => {
+          console.log(currentLocation.slice(0, index + 1).join('/'));
           return (
             <li
-              className={
-                currentLocation[currentLocation.length - 1] === link
-                  ? 'font-bold'
-                  : ''
-              }
+              className={`
+                  ${
+                    currentLocation[currentLocation.length - 1] === link
+                      ? 'font-bold'
+                      : ''
+                  } cursor-pointer hover:underline `}
               key={index}
               onClick={() =>
-                navigate(currentLocation.slice(0, index + 1).join('/'))
+                navigate(currentLocation.slice(0, index + 1).join('/'), {
+                  replace: true,
+                })
               }
             >
-              <a href={currentLocation.slice(0, index + 1).join('/')}>
-                {link === 'localhost:3000' ? 'Home' : isProduct(link)}
-              </a>
+              {link === 'localhost:3000' ? 'Home' : isProduct(link)}
             </li>
           );
         })}

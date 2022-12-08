@@ -15,8 +15,8 @@ const SingleProductRow = ({ product, index }: IProductSingleRow) => {
   const navigate = useNavigate();
   return (
     <div
-      onClick={() => navigate(`/products/${index}`)}
-      className='flex w-full shadow-md rounded-md p-4 text-gray-700 hover:scale-105 transition-all cursor-pointer '
+      onClick={() => navigate(`/product/${index}`)}
+      className='flex w-full shadow-md rounded-md p-4 text-gray-700 border-[0px] hover:shadow-xl hover:to-secondary  transition-all cursor-pointer '
     >
       <div className='flex-2'>
         <img
@@ -45,6 +45,9 @@ const SingleProductRow = ({ product, index }: IProductSingleRow) => {
           <Rating rating={product.rating} />
         </div>
         <h3 className='font-medium text-3xl my-3'>${product.price}</h3>
+        <p className='max-w-[700px] text-gray-600 text-sm '>
+          {product.description}
+        </p>
       </div>
     </div>
   );

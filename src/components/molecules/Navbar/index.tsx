@@ -6,7 +6,7 @@ import SearchBar from '../../atoms/SearchBar';
 
 const Navbar = () => {
   return (
-    <nav className='flex justify-center py-4 px-2 shadow-lg'>
+    <nav className='flex justify-center py-4 px-2 shadow-lg fixed top-0 z-20 bg-white w-full'>
       <div className='flex w-full justify-between items-center max-w-[1496px] relative'>
         <NavList />
         <div className='absolute translate-x-[-50%] left-[50%]'>

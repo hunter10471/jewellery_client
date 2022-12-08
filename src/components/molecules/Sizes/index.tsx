@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
+import React, { SetStateAction } from 'react';
+import { SizesType } from '../../../pages/Product';
 
-enum SizesType {
-  small = 'small',
-  medium = 'medium',
-  large = 'large',
-  extraLarge = 'extraLarge',
-  extraExtraLarge = 'extraExtraLarge',
+interface ISizesProps {
+  size: SizesType;
+  setSize: SetStateAction<any>;
 }
 
-const Sizes = () => {
-  const [size, setSize] = useState<SizesType>(SizesType.small);
+const Sizes = ({ size, setSize }: ISizesProps) => {
   return (
     <div className='mt-10 mb-1 max-w-[400px]'>
       <div className='flex justify-between items-center'>
