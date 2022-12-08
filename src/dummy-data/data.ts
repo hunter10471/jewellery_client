@@ -85,6 +85,7 @@ export const products: IProduct[] = [
       count: 400,
       rate: 4.5,
     },
+    stripePrice: 'price_1MCnU6SJbpeK7y2B77jceJUg',
   },
   {
     title: 'Baguettes Milgrain Cuban Ring (14K)',
@@ -150,6 +151,7 @@ export const products: IProduct[] = [
       count: 125,
       rate: 4.8,
     },
+    stripePrice: 'price_1MCnVlSJbpeK7y2Bkn1ey6vh',
   },
   {
     title: 'Diamond Horseshoe Pendant Necklace (14K)',

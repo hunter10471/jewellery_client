@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../atoms/Button';
 
 interface ICollectionItem {
@@ -10,11 +11,14 @@ const CollectionItem = ({ img, title }: ICollectionItem) => {
   const [visible, setVisible] = useState<boolean>(
     title === 'earrings collection' ? true : false
   );
+  const navigate = useNavigate();
+  const category = title.split(' ')[0];
   return (
     <div
       onMouseOver={() => setVisible(true)}
       onMouseLeave={() => setVisible(false)}
-      className='relative w-6/12 flex '
+      className='relative w-6/12 flex cursor-pointer'
+      onClick={() => navigate(`/products/${category}`)}
     >
       <img className='object-cover w-full  h-[550px]' src={img} alt='gold' />
       <span

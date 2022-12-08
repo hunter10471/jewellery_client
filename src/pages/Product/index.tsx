@@ -87,7 +87,9 @@ const Product = () => {
             <h3 className='font-bold uppercase text-gray-700 mt-10 mb-2'>
               Product Details
             </h3>
-            <p className='font-medium text-gray-600'>{product?.description}</p>
+            <p className='font-medium text-gray-600'>
+              {product && product.description ? product?.description : 'N/A'}
+            </p>
           </div>
         </div>
       </div>

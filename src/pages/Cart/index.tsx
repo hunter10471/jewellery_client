@@ -5,9 +5,39 @@ import { useSelector } from 'react-redux';
 import Button from '../../components/atoms/Button';
 import CartRow from '../../components/molecules/CartRow';
 import { RootState } from '../../feature/store';
+import { loadStripe } from '@stripe/stripe-js';
 
 const CartPage = () => {
   const products = useSelector((state: RootState) => state.cart);
+
+  let stripePromise;
+  const getStripe = () => {
+    if (!stripePromise) {
+      stripePromise = loadStripe(
+        'pk_test_51JgXuYSJbpeK7y2B8gp14PC5o6QdeofhURiwQQzdGVH3OASYZWqGIFyCzlOrLofvenHL1ZHMq6zWTquHRRaAC29w00wqlrxBxK'
+      );
+    }
+    return stripePromise;
+  };
+
+  const checkoutOptions = {
+    lineItems: [
+      ...products.items.map((product) => {
+        return {
+          price: product.product.stripePrice,
+          quantity: product.quantity,
+        };
+      }),
+    ],
+    mode: 'payment',
+    successUrl: `${window.location.origin}/success`,
+    cancelUrl: `${window.location.origin}/cancel`,
+  };
+  const redirectToCheckout = async () => {
+    const stripe = await getStripe();
+    await stripe.redirectToCheckout(checkoutOptions);
+  };
+
   return (
     <div className='w-full flex justify-center items-center '>
       <div className='max-w-screen-xl flex flex-col justify-center items-center py-10 px-4'>
@@ -15,11 +45,16 @@ const CartPage = () => {
           {' '}
           <BsBag fontSize={30} /> My Cart
         </h1>
-        <div className='flex w-full justify-between gap-20 my-10'>
-          <div className='p-2'>
+        <div className='flex w-full justify-between gap-20 my-10 '>
+          <div className='p-2 w-full min-w-[300px]'>
             {products.items.map((product, index) => (
               <CartRow key={index} item={product} />
             ))}
+            {products.items.length === 0 && (
+              <h2 className='text-xl font-medium text-center capitalize mb-10'>
+                No items in your cart
+              </h2>
+            )}
             <div className='py-4 flex w-full justify-between'>
               <h3 className='text-lg font-medium'>
                 {products.items.length} Items
@@ -65,6 +100,7 @@ const CartPage = () => {
               className='flex items-center gap-1 rounded-md my-8'
               primary
               text={'Checkout'}
+              onClick={redirectToCheckout}
             >
               <AiFillLock fontSize={25} />
             </Button>

@@ -10,6 +10,7 @@ export interface IProduct {
   image: string;
   price: number;
   size?: string;
+  stripePrice?: string;
 }
 
 export interface IProductState {

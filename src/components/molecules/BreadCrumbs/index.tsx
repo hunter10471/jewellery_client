@@ -9,13 +9,14 @@ const BreadCrumbs = ({ title }: IBreadCrumbsProps) => {
   const currentLocation = window.location.href.split('//')[1].split('/');
   const navigate = useNavigate();
   const isProduct = (link: string) => {
-    return parseInt(link) ? title : link;
+    if (parseInt(link) || link === '0') {
+      return title;
+    } else return link;
   };
   return (
     <div className='text-sm breadcrumbs mb-10'>
       <ul>
         {currentLocation.map((link, index) => {
-          console.log(currentLocation.slice(0, index + 1).join('/'));
           return (
             <li
               className={`

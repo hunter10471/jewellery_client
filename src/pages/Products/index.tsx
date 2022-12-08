@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Loader from '../../components/atoms/Loader';
-import Sidebar from '../../components/molecules/Sidebar';
+// import Sidebar from '../../components/molecules/Sidebar';
 import SingleProductRow from '../../components/molecules/SingleProductRow';
 import { products } from '../../dummy-data/data';
 import { addProductsState } from '../../feature/productSlice';
@@ -28,7 +28,7 @@ const Products = () => {
         <Loader className='w-full h-screen flex items-center justify-center' />
       ) : (
         <div className='max-w-screen-xl flex  gap-4 p-4'>
-          <Sidebar />
+          {/* <Sidebar /> */}
           <div className='flex flex-col gap-10'>
             <h1 className='text-4xl font-bold my-10 font-heading'>Products</h1>
             {filteredProducts.map((product, index) => {
